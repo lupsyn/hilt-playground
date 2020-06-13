@@ -16,7 +16,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments += ["room.incremental" : "true"]
+                arguments += ["room.incremental": "true"]
             }
         }
     }
@@ -93,6 +93,7 @@ dependencies {
     implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
     implementation "androidx.room:room-runtime:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "com.github.savvyapps:ToggleButtonLayout:$toggleButtonVersion"
 
     // Architecture Components
     implementation "androidx.room:room-runtime:$roomVersion"

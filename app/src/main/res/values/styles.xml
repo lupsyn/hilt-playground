@@ -24,4 +24,9 @@
 
     <style name="Toolbar" parent="ThemeOverlay.AppCompat.Dark" />
 
+    <style name="TabLayout" parent="@style/Base.Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/colorYellow</item>
+
+    </style>
+
 </resources>

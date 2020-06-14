@@ -45,5 +45,4 @@ class DetailFragment : Fragment(), ChallengeListListener {
     override fun onClick(item: Challenge) {
         //Doing nothing
     }
-
 }

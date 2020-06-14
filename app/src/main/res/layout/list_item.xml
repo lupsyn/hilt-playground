@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
     android:padding="@dimen/eight">
 
     <ImageView
@@ -14,55 +15,55 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/ic_mission_gps" />
 
-    <TextView
-        android:id="@+id/title"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="left|center_vertical"
-        android:minWidth="@dimen/forty"
-        android:minHeight="@dimen/forty"
-        android:paddingLeft="@dimen/padding_horizontal"
-        android:paddingRight="@dimen/padding_horizontal"
-        android:textColor="@color/black"
-        android:textSize="@dimen/ItemListTitle"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Let's play! ps4 booth" />
+        android:layout_toEndOf="@+id/imageView"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="8dp">
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:gravity="left|center_vertical"
-        android:lineSpacingExtra="4dp"
-        android:maxLines="2"
-        android:minWidth="@dimen/forty"
-        android:minHeight="@dimen/forty"
-        android:paddingLeft="@dimen/padding_horizontal"
-        android:paddingRight="@dimen/padding_horizontal"
-        android:textSize="@dimen/itemListDescription"
-        app:layout_constrainedWidth="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="Find a droid from start wars and take a selfie with it!" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:minWidth="@dimen/forty"
+            android:minHeight="@dimen/forty"
+            android:paddingLeft="@dimen/padding_horizontal"
+            android:paddingRight="@dimen/padding_horizontal"
+            android:textColor="@color/black"
+            android:textSize="@dimen/ItemListTitle"
+            android:textStyle="bold"
+            tools:text="Let's play! ps4 booth" />
 
-    <TextView
-        android:id="@+id/points"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="@dimen/forty"
-        android:minHeight="@dimen/forty"
-        android:paddingLeft="@dimen/padding_horizontal"
-        android:paddingTop="@dimen/eight"
-        android:paddingRight="@dimen/padding_horizontal"
-        android:textSize="@dimen/pointsTextSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/title"
-        tools:text="150pts" />
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:lineSpacingExtra="2dp"
+            android:maxLines="2"
+            android:minWidth="@dimen/forty"
+            android:minHeight="@dimen/forty"
+            android:paddingLeft="@dimen/padding_horizontal"
+            android:paddingRight="@dimen/padding_horizontal"
+            android:textSize="@dimen/itemListDescription"
+            tools:text="Find a droid from start wars and take a selfie with it!" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:minWidth="@dimen/forty"
+            android:minHeight="@dimen/forty"
+            android:paddingLeft="@dimen/padding_horizontal"
+            android:paddingTop="@dimen/eight"
+            android:paddingRight="@dimen/padding_horizontal"
+            android:textSize="@dimen/pointsTextSize"
+            tools:text="150pts" />
+    </RelativeLayout>
+</RelativeLayout>

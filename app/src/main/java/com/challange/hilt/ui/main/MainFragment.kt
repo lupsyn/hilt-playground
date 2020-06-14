@@ -2,12 +2,17 @@ package com.challange.hilt.ui.main
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.challange.hilt.R
+import com.challange.hilt.ui.detail.DetailFragment
 import com.challange.hilt.ui.models.Challenge
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.main_fragment.*
@@ -18,13 +23,14 @@ class MainFragment : Fragment(), ChallengeListListener {
 
     private val viewModel by viewModels<MainViewModel>()
     private val mainAdapter by lazy { MainAdapter(this) }
-    private val recyclerViewLayoutManager by lazy { LinearLayoutManager(requireContext()) }
+    private val navController by lazy { requireActivity().findNavController(R.id.nav_host_fragment) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        setHasOptionsMenu(true)
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
@@ -37,7 +43,7 @@ class MainFragment : Fragment(), ChallengeListListener {
 
         recyclerView.apply {
             setHasFixedSize(true)
-            layoutManager = recyclerViewLayoutManager
+            layoutManager = LinearLayoutManager(requireContext())
             adapter = mainAdapter
         }
 
@@ -47,11 +53,10 @@ class MainFragment : Fragment(), ChallengeListListener {
         })
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) =
         inflater.inflate(R.menu.main_fragment_menu, menu)
-    }
 
     override fun onClick(item: Challenge) {
-        TODO("Not yet implemented")
+        navController.navigate(R.id.detail_fragment_dest, bundleOf("item" to item))
     }
 }

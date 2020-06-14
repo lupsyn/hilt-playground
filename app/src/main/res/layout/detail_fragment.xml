@@ -2,19 +2,32 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#f5f5f5">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/detail_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/sixteen"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_button_layout"
-        tools:layout_editor_absoluteX="0dp" />
+        android:background="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/materialButton"
+        style="@style/ButtonIos"
+        android:layout_marginStart="@dimen/eight"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/eight"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="@string/TextButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_recycler_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

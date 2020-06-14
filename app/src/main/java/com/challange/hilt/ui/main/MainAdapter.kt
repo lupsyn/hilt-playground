@@ -14,8 +14,9 @@ import com.challange.hilt.ui.models.ChallengeType.Location
 import com.challange.hilt.ui.models.ChallengeType.Photo
 
 
-class MainAdapter(private val listener: ChallengeListListener) :
+class MainAdapter(var listener: ChallengeListListener) :
     RecyclerView.Adapter<ChallengeViewHolder>() {
+
     var collection = listOf<Challenge>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChallengeViewHolder {
@@ -71,7 +72,7 @@ class ChallengeViewHolder(
         desc?.text = challenge.desc
         points?.text = """${challenge.points}${imageView?.resources?.getString(R.string.pts)}"""
         itemContainer.setOnClickListener {
-            challenge?.apply { listener.onClick(challenge) }
+            challenge.apply { listener.onClick(challenge) }
         }
     }
 }

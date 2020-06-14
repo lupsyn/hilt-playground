@@ -50,6 +50,7 @@ public class MainFragment extends Fragment implements ChallengeListListener {
         if (adapter == null) {
             adapter = new MainAdapter(this);
         }
+        adapter.setListener(this);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);

@@ -9,11 +9,13 @@ import com.challange.hilt.util.wrapEspressoIdlingResource
 class MainRepositoryImpl : MainRepository {
     override suspend fun getChallenge(): Result<List<Challenge>> {
         wrapEspressoIdlingResource {
-            return Result.Success(mockData().response)
+            return Result.Success(MockData.mockData().response)
         }
     }
+}
 
-    private fun mockData(): ChallengeResponse {
+object MockData {
+    fun mockData(): ChallengeResponse {
         val challenges = listOf(
             Challenge(
                 1,
@@ -58,7 +60,6 @@ class MainRepositoryImpl : MainRepository {
                 150
             )
         )
-
         return ChallengeResponse(challenges)
     }
 }
